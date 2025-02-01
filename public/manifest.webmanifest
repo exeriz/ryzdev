@@ -1,0 +1,21 @@
+{
+  "name": "RyzDev",
+  "description": "RyzDev is the place where all of Riz's creative journeys are documented. This website contains a comprehensive list of projects I have worked on, from the initial idea to the final result.",
+  "short_name": "RyzDev",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#030712",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

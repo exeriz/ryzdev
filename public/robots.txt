@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /api/
+
+Allow: /public/
+Allow: /static/
+
+Sitemap: https://ryzdev.vercel.app/sitemap.xml
+
+User-agent: Googlebot
+Disallow: /no-google/
+
+User-agent: Bingbot
+Disallow: /no-bing/
+
+User-agent: *
+Disallow: /no-crawlers/
+
+Allow: /robots.txt
+Allow: /favicon.ico
+
+User-agent: *
+Crawl-delay: 10
