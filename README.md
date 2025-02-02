@@ -24,7 +24,7 @@ This website was created with the following objectives:
 
 ## What's New?
 
-[See the full list of changes on the changelog page](https://ryzdev.netlify.app/changelog)
+[See the full list of changes on the changelog page](https://ryzdev.vercel.app/changelog))
 
 ## Technology Used
 
@@ -35,7 +35,7 @@ This website is built using:
 
 ## Sitemap & Robots
 
-To improve SEO and search engine indexing, this website uses sitemap.xml which can be found at: [https://ryzdev.netlify.app/sitemap.xml](https://ryzdev.netlify.app/sitemap.xml)
+To improve SEO and search engine indexing, this website uses sitemap.xml which can be found at: [https://ryzdev.vercel.app/sitemap.xml](https://ryzdev.vercel.app/sitemap.xml)
 
 ## License
 
