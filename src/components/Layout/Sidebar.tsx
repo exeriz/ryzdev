@@ -34,7 +34,7 @@ export function SidebarContent() {
             What's new
           </Badge>
           <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600 dark:text-gray-400">
-            <span>Official Release v1.0.0</span>
+            <span>Official Release v1.4.8</span>
             <Svg
               variant="outline"
               stroke="#9ca3af"
