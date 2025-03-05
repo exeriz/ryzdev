@@ -74,7 +74,7 @@ export default function Home() {
             </section>
 
             <section className="border-b border-gray-950/10 dark:border-gray-50/10 space-y-2.5 pb-5">
-              <div className="flex flex-wrap sm:items-center gap-5">
+              <div className="flex flex-wrap-reverse sm:items-center gap-x-5 gap-y-2.5">
                 <h2 className="text-xl font-semibold text-gray-950 dark:text-gray-50">
                   {project.title}
                 </h2>
