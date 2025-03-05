@@ -4,10 +4,10 @@ import { useState } from "react";
 
 interface SvgProps {
   variant?: "outline" | "solid" | "custom";
-  draw?: string;
+  draw?: string[];
   viewBox?: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   strokeDark?: string;
   stroke?: string;
   fillDark?: string;
@@ -19,7 +19,7 @@ interface SvgProps {
 
 export function Svg({
   variant = "solid",
-  draw,
+  draw = [],
   viewBox,
   width,
   height,
@@ -46,18 +46,32 @@ export function Svg({
   return (
     <svg
       xmlns={xmlns}
-      fill={variant !== "outline" ? (fillHover) : "none"}
+      fill={variant !== "outline" ? fillHover : "none"}
       viewBox={view}
-      stroke={variant === "outline" ? (strokeHover) : undefined}
+      stroke={variant === "outline" ? strokeHover : undefined}
       strokeWidth={variant === "outline" ? 1.5 : undefined}
       width={width}
       height={height}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
       aria-hidden="true"
-      className={clss(className, "pointer-events-none transition-all duration-300 ease-linear")}
+      className={clss(
+        className,
+        "pointer-events-none transition-all duration-300 ease-linear"
+      )}
     >
-      {variant === "custom" ? children : <path d={draw} strokeLinecap="round" strokeLinejoin="round" fillRule="evenodd" clipRule="evenodd" />}
+      {variant === "custom"
+        ? children
+        : draw.map((d) => (
+            <path
+              key={d}
+              d={d}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fillRule="evenodd"
+              clipRule="evenodd"
+            />
+          ))}
     </svg>
   );
 }
