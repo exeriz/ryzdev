@@ -41,7 +41,7 @@ export function ScrollButton() {
           strokeDark="#d1d5db"
           width={24}
           height={24}
-          draw="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+          draw={["M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"]}
         />
       </Button>
     )
