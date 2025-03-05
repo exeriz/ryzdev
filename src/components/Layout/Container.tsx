@@ -27,7 +27,7 @@ function SectionHeader({ date }: Readonly<{ date: string }>) {
       <div className="pointer-events-none absolute left-[max(-0.5rem,calc(50%-18.625rem))] top-0 z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] xl:h-8">
         <Time
           date={date}
-          className="hidden xl:pointer-events-auto xl:block xl:text-2xs/4 xl:font-medium xl:text-gray-50/50"
+          className="hidden xl:pointer-events-auto xl:block xl:text-xs xl:font-medium xl:text-gray-50/50"
         />
         <div className="h-[0.0625rem] w-3.5 bg-gray-600 dark:text-gray-400 lg:-mr-3.5 xl:mr-0" />
       </div>
