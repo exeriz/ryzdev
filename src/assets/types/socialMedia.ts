@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, JSX } from "react";
 
 export interface SocialMedia {
   name: string;
