@@ -18,10 +18,10 @@ export function TextImage({
       <h3 className="text-lg text-gray-200 font-semibold sm:text-xl lg:text-3xl">
         {textTitle}
       </h3>
-      <p className="text-sm text-gray-300 font-medium sm:text-base/7">
+      <p className="text-xs text-gray-300 font-medium sm:text-sm/7">
         Project Development
       </p>
-      <div className="absolute bottom-4 flex items-center gap-x-2 [&_p]:text-xs [&_p]:text-gray-400">
+      <div className="absolute bottom-4 flex items-center gap-x-2 [&_p]:text-[0.5rem] [&_p]:text-gray-400 sm:[&_p]:text-xs">
         <p>{textLicense || "No "} license</p>
         <Svg
           variant="custom"
