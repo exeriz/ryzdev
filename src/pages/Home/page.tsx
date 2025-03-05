@@ -71,6 +71,7 @@ export default function Home() {
           <Container className="text-gray-600 dark:text-gray-400">
             <section className="w-full pt-8 pb-6">
               <Image
+                priority
                 src={Thumbnail}
                 alt={`Thumbnail for project #${project.id}: ${
                   project.title

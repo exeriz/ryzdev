@@ -115,6 +115,7 @@ export default function About() {
           {stack.map((item) => (
             <div key={item.name} className="flex flex-col items-center gap-y-4">
               <Image
+                priority
                 variant="square"
                 src={item.logo}
                 alt={`${item.name} Logo`}
