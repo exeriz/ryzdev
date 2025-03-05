@@ -113,7 +113,7 @@ export default function About() {
         <h3 className="text-xl font-medium">Technology Used</h3>
         <div className="grid grid-cols-3 gap-8 py-8 sm:grid-cols-4">
           {stack.map((item) => (
-            <div key={item.name} className="flex flex-col items-center gap-y-4">
+            <div key={item.name} className="flex flex-col items-center gap-y-4 text-sm text-center">
               <Image
                 priority
                 variant="square"
