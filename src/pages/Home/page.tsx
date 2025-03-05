@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, SectionHeader } from "@/components/Layout/Container";
 import { Pagination } from "@/components/Pagination";
 import { Button } from "@/components/Button/Button";
@@ -22,7 +22,6 @@ export default function Home() {
       : data.filter((project) => project.category === category);
 
   const sectionPerPage: number = 5;
-  const sectionHeightRef = useRef<HTMLDivElement>(null);
   const totalPages = Math.ceil(filteredProjects.length / sectionPerPage);
   const startIndex = (currentPage - 1) * sectionPerPage;
   const endIndex = startIndex + sectionPerPage;
@@ -31,24 +30,6 @@ export default function Home() {
   useEffect(() => {
     setCurrentPage(1);
   }, [category]);
-
-  useEffect(() => {
-    if (!sectionHeightRef.current) {
-      return;
-    }
-
-    const resizeObserver = new ResizeObserver(() => {
-      if (!sectionHeightRef.current) {
-        return;
-      }
-    });
-
-    resizeObserver.observe(sectionHeightRef.current);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -64,7 +45,6 @@ export default function Home() {
       {currentProjects.map((project, index) => (
         <article
           key={project.id}
-          ref={sectionHeightRef}
           id={project.title.replace(/ /g, "-").toLowerCase()}
         >
           <SectionHeader date={project.date} />

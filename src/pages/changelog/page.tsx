@@ -1,37 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import { Container, SectionHeader } from "@/components/Layout/Container";
 
 export default function Changelog() {
-  const [heightAdjustment, setHeightAdjustment] = useState<number>(0);
-  const sectionHeightRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionHeightRef.current) {
-      return;
-    }
-
-    const resizeObserver = new ResizeObserver(() => {
-      if (!sectionHeightRef.current) {
-        return;
-      }
-      const { height } = sectionHeightRef.current.getBoundingClientRect();
-      const multipleHeight = 8 * Math.ceil(height / 8);
-      setHeightAdjustment(multipleHeight - height);
-    });
-
-    resizeObserver.observe(sectionHeightRef.current);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
-
   return (
     <div className="space-y-10 divide-y divide-white/10 sm:space-y-16">
-      <article
-        ref={sectionHeightRef}
-        style={{ paddingBottom: `${heightAdjustment}px` }}
-      >
+      <article>
         <SectionHeader date={"2025-02-01"} />
         <Container className="text-base/7 text-gray-600 dark:text-gray-400">
           <h1 className="text-xl font-semibold text-gray-950 dark:text-gray-50">
