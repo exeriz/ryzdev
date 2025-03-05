@@ -172,7 +172,7 @@ export default function Home() {
                 </h3>
 
                 <div className="flex flex-wrap gap-2 rounded-lg bg-gray-50 dark:bg-gray-400/10 p-3 ring-1 ring-inset ring-gray-600/10 dark:ring-gray-400/20">
-                  {project.tags.map((tag) => (
+                  {project.tags.toSorted((a, b) => a.localeCompare(b)).map((tag) => (
                     <Badge title={tag} key={tag} variant="secondary">
                       {tag}
                     </Badge>
