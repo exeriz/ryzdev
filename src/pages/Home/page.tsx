@@ -88,16 +88,27 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap items-center gap-2 py-2">
-                <Badge title="Project developer">
+                <Badge title="Current project id">
                   <Svg
                     variant="outline"
                     stroke="#4b5563"
                     strokeDark="#9ca3af"
                     width={12}
                     height={12}
-                    draw={["M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"]}
+                    draw={["M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5"]}
                   />
-                  Ryzmdn
+                  Project {project.id}
+                </Badge>
+                <Badge title="Project release date">
+                  <Svg
+                    variant="outline"
+                    stroke="#4b5563"
+                    strokeDark="#9ca3af"
+                    width={12}
+                    height={12}
+                    draw={["M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"]}
+                  />
+                  {dateFormatter.format(new Date(project.date))}
                 </Badge>
                 <Badge title="Project license">
                   <Svg
@@ -120,17 +131,6 @@ export default function Home() {
                     draw={["M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"]}
                   />
                   {project.version}
-                </Badge>
-                <Badge title="Current project id">
-                  <Svg
-                    variant="outline"
-                    stroke="#4b5563"
-                    strokeDark="#9ca3af"
-                    width={12}
-                    height={12}
-                    draw={["M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5"]}
-                  />
-                  Project {project.id}
                 </Badge>
               </div>
             </section>
@@ -167,9 +167,17 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-gray-950 dark:text-gray-50">
-                  Category
-                </h3>
+                <div className="flex items-center gap-x-2">
+                  <Svg
+                    fill="#3b82f6"
+                    width={20}
+                    height={20}
+                    draw={["M5.25 2.25a3 3 0 0 0-3 3v4.318a3 3 0 0 0 .879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 0 0 5.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 0 0-2.122-.879H5.25ZM6.375 7.5a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z"]}
+                  />
+                  <p className="text-lg font-medium text-gray-950 dark:text-gray-50">
+                    Tags
+                  </p>
+                </div>
 
                 <div className="flex flex-wrap gap-2 rounded-lg bg-gray-50 dark:bg-gray-400/10 p-3 ring-1 ring-inset ring-gray-600/10 dark:ring-gray-400/20">
                   {project.tags.toSorted((a, b) => a.localeCompare(b)).map((tag) => (
@@ -192,9 +200,9 @@ export default function Home() {
                       variant="outline"
                       stroke="#4b5563"
                       strokeDark="#9ca3af"
-                      width={20}
-                      height={20}
-                      draw={["M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"]}                   
+                      width={18}
+                      height={18}
+                      draw={["M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"]}
                     />
                     Demo Link
                   </Button>
@@ -207,12 +215,11 @@ export default function Home() {
                   className="hover:underline"
                 >
                   <Svg
-                    variant="outline"
-                    stroke="#4b5563"
-                    strokeDark="#9ca3af"
-                    width={20}
-                    height={20}
-                    draw={["M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0 1 20.25 6v12A2.25 2.25 0 0 1 18 20.25H6A2.25 2.25 0 0 1 3.75 18V6A2.25 2.25 0 0 1 6 3.75h1.5m9 0h-9"]}
+                    fill="#4b5563"
+                    fillDark="#9ca3af"
+                    width={17}
+                    height={17}
+                    draw={["M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"]}
                   />
                   Repository Link
                 </Button>
