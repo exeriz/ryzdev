@@ -15,9 +15,9 @@ export function TextImage({
 }: Readonly<TextImageProps>) {
   return (
     <div className="absolute inset-0 z-10 size-full flex flex-col justify-center items-center gap-y-1 backdrop-blur-xs text-center">
-      <h3 className="text-lg text-gray-200 font-semibold sm:text-xl lg:text-3xl">
+      <h2 className="text-lg text-gray-200 font-semibold sm:text-xl lg:text-3xl">
         {textTitle}
-      </h3>
+      </h2>
       <p className="text-xs text-gray-300 font-medium sm:text-sm/7">
         Project Development
       </p>
