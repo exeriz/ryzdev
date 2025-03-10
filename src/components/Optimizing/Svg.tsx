@@ -55,10 +55,7 @@ export function Svg({
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
       aria-hidden="true"
-      className={clss(
-        className,
-        "pointer-events-none transition-all duration-300 ease-linear"
-      )}
+      className={clss(className, "pointer-events-none")}
     >
       {variant === "custom"
         ? children

@@ -19,7 +19,7 @@ export function Badge({
   children,
 }: Readonly<BadgeProps>) {
   const computedClassName = clss(
-    "inline-flex items-center gap-x-1 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset transition-all duration-300 ease-linear",
+    "inline-flex items-center gap-x-1 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset",
     variantClasses[variant],
     className
   );

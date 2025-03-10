@@ -68,14 +68,14 @@ export function Image({
         onLoad={handleLoad}
         className={clss(
           isLoading ? "hidden" : "block",
-          "object-cover will-change-transform transition-all duration-300 ease-linear"
+          "object-cover will-change-transform"
         )}
       />
     )
   }
 
   return (
-    <div className="relative overflow-hidden aspect-video rounded-xl bg-gray-50 dark:bg-gray-950 transition-all duration-300 ease-linear">
+    <div className="relative overflow-hidden aspect-video rounded-xl bg-gray-50 dark:bg-gray-950">
       {isLoading && !hasError && (
         <img
           src={PlaceholderImage}

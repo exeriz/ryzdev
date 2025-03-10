@@ -40,7 +40,7 @@ export function Button({
     className,
     shadow ? "shadow-sm" : "shadow-none",
     rounded ? "rounded-full" : "rounded-md",
-    "inline-flex justify-center items-center gap-x-2 cursor-pointer transition-all duration-300 ease-linear"
+    "inline-flex justify-center items-center gap-x-2 cursor-pointer"
   );
 
   if ("to" in props) {
