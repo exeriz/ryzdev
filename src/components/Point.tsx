@@ -15,7 +15,7 @@ export function Point() {
           <pattern id={id} width="6" height="8" patternUnits="userSpaceOnUse">
             <path
               d="M0 0H6M0 8H6"
-              className="stroke-gray-950/10 dark:stroke-gray-50/10 xl:stroke-gray-50/10"
+              className="stroke-gray-950/15 dark:stroke-gray-50/15"
               fill="none"
             />
           </pattern>
