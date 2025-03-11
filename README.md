@@ -31,7 +31,7 @@ This website was created with the following objectives:
 This website is built using:
 
 - **Frontend:** HTML, CSS, Tailwind CSS TypeScript, React.js, Vite
-- **Hosting:** Netlify
+- **Hosting:** Vercel
 
 ## Sitemap & Robots
 
