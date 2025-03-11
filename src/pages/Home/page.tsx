@@ -187,25 +187,29 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="flex items-center gap-x-2 mt-8">
+              <div className="flex items-center gap-x-4 mt-8">
                 {project.url.demo && (
-                  <Button
-                    href={project.url.demo}
-                    variant="text"
-                    shadow={false}
-                    aria-label="Link to visit demo"
-                    className="hover:underline"
-                  >
-                    <Svg
-                      variant="outline"
-                      stroke="#4b5563"
-                      strokeDark="#9ca3af"
-                      width={18}
-                      height={18}
-                      draw={["M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"]}
-                    />
-                    Demo Link
-                  </Button>
+                  <>
+                    <Button
+                      href={project.url.demo}
+                      variant="text"
+                      shadow={false}
+                      aria-label="Link to visit demo"
+                      className="hover:underline"
+                    >
+                      <Svg
+                        variant="outline"
+                        stroke="#4b5563"
+                        strokeDark="#9ca3af"
+                        width={18}
+                        height={18}
+                        draw={["M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"]}
+                      />
+                      Demo Link
+                    </Button>
+                    
+                    <span className="w-0.25 h-4 bg-gray-900/10 dark:bg-gray-50/10 rounded-full" aria-hidden="true" />
+                  </>
                 )}
                 <Button
                   href={project.url.repo}
