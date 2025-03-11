@@ -27,6 +27,7 @@ export function Header() {
                 <option value="Front-end">Front-end</option>
                 <option value="Back-end">Back-end</option>
                 <option value="Full-stack">Full-stack</option>
+                <option value="Application">Android</option>
               </select>
               <Svg
                 variant="outline"
