@@ -138,7 +138,7 @@ export function Sidebar() {
       aria-label="Main website sidebar"
       className="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0"
     >
-      <div className="absolute inset-0 -z-10 overflow-hidden bg-gray-50 dark:bg-gray-950 border-b border-blue-900/10 dark:border-gray-50/10 transition-all duration-300 ease-linear lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:border-r" />
+      <div className="absolute inset-0 -z-10 overflow-hidden bg-gray-50 dark:bg-gray-950 border-b border-blue-900/10 dark:border-gray-50/10 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:border-r" />
       <div className="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(50%-38rem))]">
         <div className="mx-auto max-w-lg lg:flex lg:flex-col lg:before:flex-1 lg:w-96 lg:max-w-none lg:mx-0">
           <div className="relative py-16 sm:py-20 lg:py-0">
