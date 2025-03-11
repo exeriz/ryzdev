@@ -21,7 +21,7 @@ export function Header() {
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="col-start-1 row-start-1 w-full appearance-none rounded-full bg-gray-50 dark:bg-gray-950 py-1 pl-4 pr-7 text-sm/6 text-gray-600 dark:text-gray-400 cursor-pointer outline-1 -outline-offset-1 outline-gray-400 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 transition-all duration-300 ease-linear"
+                className="col-start-1 row-start-1 w-full appearance-none rounded-full bg-gray-50 dark:bg-gray-950 py-1 pl-4 pr-7 text-sm/6 text-gray-600 dark:text-gray-400 cursor-pointer outline-1 -outline-offset-1 outline-gray-400 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
               >
                 <option value="all">All</option>
                 <option value="Front-end">Front-end</option>
