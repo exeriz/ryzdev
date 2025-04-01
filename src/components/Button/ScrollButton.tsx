@@ -37,8 +37,6 @@ export function ScrollButton() {
       >
         <Svg
           variant="outline"
-          stroke="#374151"
-          strokeDark="#d1d5db"
           width={24}
           height={24}
           draw={["M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"]}
