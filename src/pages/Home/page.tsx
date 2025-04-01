@@ -14,7 +14,12 @@ import Thumbnail from "@/assets/images/thumbnail.jpg";
 export default function Home() {
   const { data, loading, error } = useFetch<Project>("https://raw.githubusercontent.com/rizumdn/ryzdev-project/refs/heads/main/projects.json");
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [selectedVersions, setSelectedVersions] = useState<{ [key: number]: string }>({});
 
+  const handleVersionChange = (projectId: number, event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedVersions((prev) => ({ ...prev, [projectId]: event.target.value }));
+  };
+  
   const { category } = useFilterContext();
   const filteredProjects =
     category === "all"
@@ -45,29 +50,29 @@ export default function Home() {
       {currentProjects.map((project, index) => (
         <article
           key={project.id}
-          id={project.title.replace(/ /g, "-").toLowerCase()}
+          id={project.name.replace(/ /g, "-").toLowerCase()}
         >
-          <SectionHeader date={project.date} />
+          <SectionHeader date={project.created_at} />
           <Container className="text-gray-600 dark:text-gray-400">
             <section className="w-full pt-8 pb-6">
               <Image
                 priority
                 src={Thumbnail}
                 alt={`Thumbnail for project #${project.id}: ${
-                  project.title
+                  project.name
                 }, categorized as ${
                   project.category
                 }. Created on ${dateFormatter.format(
-                  new Date(project.date)
+                  new Date(project.created_at)
                 )}. License: ${
                   project.license !== null
                     ? `${project.license}-licensed`
                     : "Not licensed"
                 }.`}
                 text={{
-                  textTitle: project.title,
+                  textTitle: project.name,
                   textLicense: project.license,
-                  textVersion: project.version,
+                  textVersion: project.features?.[0]?.version,
                   textCategory: project.category,
                 }}
               />
@@ -76,7 +81,7 @@ export default function Home() {
             <section className="border-b border-gray-950/10 dark:border-gray-50/10 space-y-2.5 pb-5">
               <div className="flex flex-wrap-reverse sm:items-center gap-x-5 gap-y-2.5">
                 <h2 className="text-xl font-semibold text-gray-950 dark:text-gray-50">
-                  {project.title}
+                  {project.name}
                 </h2>
                 <Badge title="Project category" variant="secondary">
                   {project.category}
@@ -84,7 +89,7 @@ export default function Home() {
               </div>
 
               <p className="text-gray-600 dark:text-gray-400">
-                {project.subtitle}
+                {project.description.summary}
               </p>
 
               <div className="flex flex-wrap items-center gap-2 py-2">
@@ -108,7 +113,7 @@ export default function Home() {
                     height={12}
                     draw={["M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"]}
                   />
-                  {dateFormatter.format(new Date(project.date))}
+                  {dateFormatter.format(new Date(project.created_at))}
                 </Badge>
                 <Badge title="Project license">
                   <Svg
@@ -130,14 +135,14 @@ export default function Home() {
                     height={12}
                     draw={["M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"]}
                   />
-                  {project.version}
+                  {project.features?.[0]?.version}
                 </Badge>
               </div>
             </section>
 
             <section className="text-base/7 text-gray-600 dark:text-gray-400 pb-8">
               <div className="space-y-2.5 mt-6">
-                {project.paragraph.map((text) => (
+                {project.description.detail.map((text) => (
                   <p key={text}>{text}</p>
                 ))}
               </div>
@@ -155,15 +160,29 @@ export default function Home() {
                   </p>
                 </div>
 
-                {Object.entries(project.versions).map(([key, value]) => (
-                  <div key={key} className="py-4">
-                    <ul className="marker:text-blue-600 dark:marker:text-blue-400 list-disc pl-5 space-y-2">
-                      {value.map((versionDetail) => (
-                        <li key={versionDetail}>{versionDetail}</li>
-                      ))}
+                <label htmlFor="version" className="sr-only">Select Version:</label>
+                <select 
+                  id="version"
+                  onChange={(e) => handleVersionChange(project.id, e)} 
+                  className="border p-2 rounded w-full"
+                >
+                  {project.features?.map((feature) => (
+                    <option key={feature.version} value={feature.version}>{feature.version}</option>
+                  ))}
+                </select>
+
+                {selectedVersions[project.id] && (
+                  <div className="mt-4">
+                    <h3 className="font-bold">Features in {selectedVersions[project.id]}:</h3>
+                    <ul className="list-disc ml-5">
+                      {project.features
+                        .find((feature) => feature.version === selectedVersions[project.id])?.list
+                        .map((feature, index) => (
+                          <li key={index}>{feature}</li>
+                        ))}
                     </ul>
                   </div>
-                ))}
+                )}
               </div>
 
               <div className="space-y-4">
@@ -188,10 +207,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center gap-x-4 mt-8">
-                {project.url.demo && (
+                {project.homepage && (
                   <>
                     <Button
-                      href={project.url.demo}
+                      href={project.homepage}
                       variant="text"
                       shadow={false}
                       aria-label="Link to visit demo"
@@ -212,7 +231,7 @@ export default function Home() {
                   </>
                 )}
                 <Button
-                  href={project.url.repo}
+                  href={project.git}
                   variant="text"
                   shadow={false}
                   aria-label="Link to visit github repository"
