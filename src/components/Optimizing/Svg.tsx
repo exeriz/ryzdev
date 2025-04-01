@@ -31,8 +31,8 @@ export function Svg({
       aria-hidden="true"
       className={clss(
         className,
-        current && variant === "custom" || variant === "solid" ? "fill-current" : "",
-        current && variant === "custom" || variant === "outline" ? "outline-current" : "",
+        current || variant === "custom" || variant === "solid" ? "fill-current" : "",
+        current || variant === "custom" || variant === "outline" ? "outline-current" : "",
         "pointer-events-none shrink-0"
       )}
     >
