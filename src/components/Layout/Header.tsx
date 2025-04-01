@@ -31,8 +31,6 @@ export function Header() {
               </select>
               <Svg
                 variant="outline"
-                stroke="#9ca3af"
-                strokeDark="#9ca3af"
                 width={14}
                 height={14}
                 draw={["m19.5 8.25-7.5 7.5-7.5-7.5"]}
