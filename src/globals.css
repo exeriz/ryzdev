@@ -19,4 +19,8 @@
   time, mark, audio, video {
     @apply transition-all duration-200 ease-linear;
   }
+
+  section, article {
+    content-visibility: auto;
+  }
 }
