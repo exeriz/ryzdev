@@ -18,6 +18,6 @@ export interface Project {
   ];
   homepage: string | null;
   git: string;
-  license: string;
+  license: string | null;
   contributors: string[] | null;
 }
