@@ -12,7 +12,7 @@ import { useFilterContext } from "@/context/FilterContent";
 import Thumbnail from "@/assets/images/thumbnail.jpg";
 
 export default function Home() {
-  const { data, loading, error } = useFetch<Project>("https://raw.githubusercontent.com/rizumdn/ryzdev-project/refs/heads/main/projects.json");
+  const { data, loading, error } = useFetch<Project>(import.meta.env.VITE_PROJECT_URL);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedVersions, setSelectedVersions] = useState<{ [key: number]: string }>({});
 
