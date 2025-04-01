@@ -37,8 +37,8 @@ export function ScrollButton() {
       >
         <Svg
           variant="outline"
-          width={24}
-          height={24}
+          width={16}
+          height={16}
           draw={["M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"]}
         />
       </Button>
