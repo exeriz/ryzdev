@@ -15,9 +15,12 @@ export interface Project {
       version: string;
       list: string[];
     }
-  ];
+  ] | null;
   homepage: string | null;
   git: string;
   license: string | null;
-  contributors: string[] | null;
+  contributors: {
+    image: string;
+    url: string;
+  } | null;
 }
