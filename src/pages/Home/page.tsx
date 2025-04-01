@@ -216,14 +216,14 @@ export default function Home() {
                               </div>
                             );
                           } else {
-                            return <p className="mt-2">No features available for this version.</p>;
+                            return <p className="text-sm/6 mt-2">No features available for this version.</p>;
                           }
                         })()}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <p className="mt-2">No feature versions available.</p>
+                  <p className="text-sm/6 mt-2">No feature versions available.</p>
                 )}
               </div>
 
@@ -251,7 +251,7 @@ export default function Home() {
                         </Badge>
                       ))
                   ) : (
-                    <p>No tags available</p>
+                    <p className="text-sm/6 mt-2">No tags available</p>
                   )}
                 </div>
               </div>
