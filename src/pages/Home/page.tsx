@@ -238,7 +238,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2 rounded-lg bg-gray-50 dark:bg-gray-400/10 p-3 ring-1 ring-inset ring-gray-600/10 dark:ring-gray-400/20">
+                <div className="flex flex-wrap gap-x-2 gap-y-1.5 rounded-md bg-gray-50 dark:bg-gray-400/10 p-3 text-gray-600 dark:text-gray-400 mt-2 ring-1 ring-gray-500/10 dark:ring-gray-400/20 ring-inset">
                   {project.tags && project.tags.length > 0 ? (
                     project.tags
                       .slice()
@@ -253,6 +253,7 @@ export default function Home() {
                   )}
                 </div>
               </div>
+
               <div className="flex items-center gap-x-4 mt-8">
                 {project.homepage && (
                   <>
