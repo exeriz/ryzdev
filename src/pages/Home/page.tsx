@@ -16,28 +16,46 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedVersions, setSelectedVersions] = useState<{ [key: number]: string }>({});
 
-  const handleVersionChange = (projectId: number, event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedVersions((prev) => ({ ...prev, [projectId]: event.target.value }));
-  };
-  
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const initialVersions: { [key: number]: string } = {};
+      data.forEach(project => {
+        if (project.features && project.features.length > 0) {
+          initialVersions[project.id] = project.features[0].version;
+        }
+      });
+      setSelectedVersions(initialVersions);
+    }
+  }, [data]);
+
   const { category } = useFilterContext();
-  const filteredProjects =
-    category === "all"
-      ? data
-      : data.filter((project) => project.category === category);
-
-  const sectionPerPage: number = 5;
-  const totalPages = Math.ceil(filteredProjects.length / sectionPerPage);
-  const startIndex = (currentPage - 1) * sectionPerPage;
-  const endIndex = startIndex + sectionPerPage;
-  const currentProjects = filteredProjects.slice(startIndex, endIndex);
-
   useEffect(() => {
     setCurrentPage(1);
   }, [category]);
 
+  const handleVersionChange = (projectId: number, event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedVersions((prev) => ({ ...prev, [projectId]: event.target.value }));
+  };
+
+  let filteredProjects: Project[];
+
+  if (!data) {
+    filteredProjects = [];
+  } else if (category === "all") {
+    filteredProjects = data;
+  } else {
+    filteredProjects = data.filter((project) => project.category === category);
+  }
+
+  const sectionPerPage: number = 5;
+  const totalPages = Math.ceil((filteredProjects?.length || 0) / sectionPerPage);
+  const startIndex = (currentPage - 1) * sectionPerPage;
+  const endIndex = startIndex + sectionPerPage;
+  const currentProjects = filteredProjects?.slice(startIndex, endIndex) || [];
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
+  if (!data || data.length === 0) return <div>No projects found</div>;
 
   const handlePagination = (page: number) => {
     if (page > 0 && page <= totalPages) {
@@ -142,8 +160,8 @@ export default function Home() {
 
             <section className="text-base/7 text-gray-600 dark:text-gray-400 pb-8">
               <div className="space-y-2.5 mt-6">
-                {project.description.detail.map((text) => (
-                  <p key={text}>{text}</p>
+                {project.description.detail.map((text, idx) => (
+                  <p key={`${project.id}-desc-${idx}`}>{text}</p>
                 ))}
               </div>
 
@@ -160,28 +178,47 @@ export default function Home() {
                   </p>
                 </div>
 
-                <label htmlFor="version" className="sr-only">Select Version:</label>
-                <select 
-                  id="version"
-                  onChange={(e) => handleVersionChange(project.id, e)} 
-                  className="border p-2 rounded w-full"
-                >
-                  {project.features?.map((feature) => (
-                    <option key={feature.version} value={feature.version}>{feature.version}</option>
-                  ))}
-                </select>
+                {project.features && project.features.length > 0 ? (
+                  <>
+                    <label htmlFor={`version-${project.id}`} className="sr-only">Select Version:</label>
+                    <select 
+                      id={`version-${project.id}`}
+                      onChange={(e) => handleVersionChange(project.id, e)} 
+                      value={selectedVersions[project.id] || ''}
+                      className="border p-2 rounded w-full mt-2"
+                    >
+                      {project.features.map((feature) => (
+                        <option key={feature.version} value={feature.version}>
+                          {feature.version}
+                        </option>
+                      ))}
+                    </select>
 
-                {selectedVersions[project.id] && (
-                  <div className="mt-4">
-                    <h3 className="font-bold">Features in {selectedVersions[project.id]}:</h3>
-                    <ul className="list-disc ml-5">
-                      {project.features
-                        .find((feature) => feature.version === selectedVersions[project.id])?.list
-                        .map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                    </ul>
-                  </div>
+                    {selectedVersions[project.id] && (
+                      <div className="mt-4">
+                        <h3 className="font-bold">Features in {selectedVersions[project.id]}:</h3>
+                        {(() => {
+                          const selectedFeature = project.features.find(
+                            (feature) => feature.version === selectedVersions[project.id]
+                          );
+                          
+                          if (selectedFeature?.list && selectedFeature.list.length > 0) {
+                            return (
+                              <ul className="list-disc ml-5 mt-2">
+                                {selectedFeature.list.map((item, idx) => (
+                                  <li key={`${project.id}-feature-${idx}`}>{item}</li>
+                                ))}
+                              </ul>
+                            );
+                          } else {
+                            return <p className="mt-2">No features available for this version.</p>;
+                          }
+                        })()}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <p className="mt-2">No feature versions available.</p>
                 )}
               </div>
 
@@ -199,11 +236,18 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 rounded-lg bg-gray-50 dark:bg-gray-400/10 p-3 ring-1 ring-inset ring-gray-600/10 dark:ring-gray-400/20">
-                  {project.tags.toSorted((a, b) => a.localeCompare(b)).map((tag) => (
-                    <Badge title={tag} key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
+                  {project.tags && project.tags.length > 0 ? (
+                    project.tags
+                      .slice()
+                      .sort((a, b) => a.localeCompare(b))
+                      .map((tag) => (
+                        <Badge title={tag} key={tag} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))
+                  ) : (
+                    <p>No tags available</p>
+                  )}
                 </div>
               </div>
               <div className="flex items-center gap-x-4 mt-8">
@@ -249,7 +293,7 @@ export default function Home() {
               </div>
             </section>
 
-            {index === currentProjects.length - 1 && (
+            {index === currentProjects.length - 1 && totalPages > 1 && (
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
@@ -259,6 +303,12 @@ export default function Home() {
           </Container>
         </article>
       ))}
+      
+      {currentProjects.length === 0 && !loading && (
+        <div className="text-center py-10">
+          <p>No projects found for the selected category.</p>
+        </div>
+      )}
     </div>
   );
 }
