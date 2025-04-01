@@ -171,24 +171,33 @@ export default function Home() {
                 </div>
 
                 {project.features && project.features.length > 0 ? (
-                  <>
-                    <label htmlFor={`version-${project.id}`} className="sr-only">Select Version:</label>
-                    <select 
-                      id={`version-${project.id}`}
-                      onChange={(e) => handleVersionChange(project.id, e)} 
-                      value={selectedVersions[project.id] || ''}
-                      className="border p-2 rounded w-full mt-2"
-                    >
-                      {project.features.map((feature) => (
-                        <option key={feature.version} value={feature.version}>
-                          {feature.version}
-                        </option>
-                      ))}
-                    </select>
+                  <div className="rounded-md bg-gray-50 dark:bg-gray-400/10 pt-1.5 px-3.5 pb-3.5 text-gray-600 dark:text-gray-400 mt-2 ring-1 ring-gray-500/10 dark:ring-gray-400/20 ring-inset">
+                    <label htmlFor={`version-${project.id}`} className="sr-only">Select Version</label>
+                    <div className="mt-2 grid grid-cols-1 w-max">
+                      <select 
+                        id={`version-${project.id}`}
+                        onChange={(e) => handleVersionChange(project.id, e)} 
+                        value={selectedVersions[project.id] || ''}
+                        className="col-start-1 row-start-1 w-full text-xs/6 appearance-none rounded-full bg-gray-50 dark:bg-gray-900 py-0.5 pr-8 pl-3 text-gray-800 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-700 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500"
+                      >
+                        {project.features.map((feature) => (
+                          <option key={feature.version} value={feature.version}>
+                            {feature.version}
+                          </option>
+                        ))}
+                      </select>
+                      
+                      <Svg
+                        variant="outline"
+                        width={12}
+                        height={12}
+                        draw={["m19.5 8.25-7.5 7.5-7.5-7.5"]}
+                        className="col-start-1 row-start-1 mr-2 self-center justify-self-end text-gray-500"
+                      />
+                    </div>
 
                     {selectedVersions[project.id] && (
-                      <div className="mt-4">
-                        <h3 className="font-bold">Features in {selectedVersions[project.id]}:</h3>
+                      <div className="mt-2">
                         {(() => {
                           const selectedFeature = project.features.find(
                             (feature) => feature.version === selectedVersions[project.id]
@@ -196,11 +205,13 @@ export default function Home() {
                           
                           if (selectedFeature?.list && selectedFeature.list.length > 0) {
                             return (
-                              <ul className="list-disc ml-5 mt-2">
-                                {selectedFeature.list.map((item, idx) => (
-                                  <li key={`${project.id}-feature-${idx}`}>{item}</li>
-                                ))}
-                              </ul>
+                              <div className="max-h-64 overflow-y-auto">
+                                <ul className="list-disc text-sm/6 ml-5 mt-2">
+                                  {selectedFeature.list.map((item, idx) => (
+                                    <li key={`${project.id}-feature-${idx}`}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
                             );
                           } else {
                             return <p className="mt-2">No features available for this version.</p>;
@@ -208,7 +219,7 @@ export default function Home() {
                         })()}
                       </div>
                     )}
-                  </>
+                  </div>
                 ) : (
                   <p className="mt-2">No feature versions available.</p>
                 )}
