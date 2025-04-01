@@ -152,14 +152,14 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="text-base/7 text-gray-600 dark:text-gray-400 pb-8">
+            <section className="flex flex-col gap-y-7 text-base/7 text-gray-600 dark:text-gray-400 pb-8">
               <div className="space-y-2.5 mt-6">
                 {project.description.detail.map((text, idx) => (
                   <p key={`${project.id}-desc-${idx}`}>{text}</p>
                 ))}
               </div>
 
-              <div className="w-full py-6">
+              <div className="w-full">
                 <div className="flex items-center gap-x-2">
                   <Svg
                     width={20}
