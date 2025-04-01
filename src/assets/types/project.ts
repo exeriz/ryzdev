@@ -22,5 +22,5 @@ export interface Project {
   contributors: {
     image: string;
     url: string;
-  } | null;
+  }[] | null;
 }
