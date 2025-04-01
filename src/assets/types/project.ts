@@ -1,20 +1,23 @@
 export interface Project {
   id: number;
-  date: string;
-  version: string;
-  title: string;
-  subtitle: string;
-  thumbnail: string;
-  paragraph: string[];
+  name: string;
+  created_at: string;
+  updated_at: string;
+  image: string | null;
+  description: {
+    summary: string;
+    detail: string[];
+  };
   category: string;
-  license: string;
-  update_at: string;
   tags: string[];
-  versions: {
-    [key: string]: string[];
-  };
-  url: {
-    demo: string | null;
-    repo: string;
-  };
+  features: [
+    {
+      version: string;
+      list: string[];
+    }
+  ];
+  homepage: string | null;
+  git: string;
+  license: string;
+  contributors: string[] | null;
 }
