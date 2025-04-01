@@ -1,17 +1,17 @@
 import { Svg } from "@/components/Optimizing/Svg";
 
 export interface TextImageProps {
-  textTitle?: string;
-  textLicense?: string;
-  textVersion?: string;
-  textCategory?: string;
+  textTitle?: string | null;
+  textLicense?: string | null;
+  textVersion?: string | null;
+  textCategory?: string | null;
 }
 
 export function TextImage({
-  textTitle,
-  textLicense,
-  textVersion,
-  textCategory,
+  textTitle = "Untitled Project",
+  textLicense = "No",
+  textVersion = "Unknown",
+  textCategory = "General",
 }: Readonly<TextImageProps>) {
   return (
     <div className="absolute inset-0 z-10 size-full flex flex-col justify-center items-center gap-y-1 backdrop-blur-xs text-center">
@@ -22,7 +22,7 @@ export function TextImage({
         Project Development
       </p>
       <div className="absolute bottom-4 flex items-center gap-x-2 [&_p]:text-[0.5rem] [&_p]:text-gray-400 sm:[&_p]:text-xs">
-        <p>{textLicense || "No "} license</p>
+        <p>{textLicense} license</p>
         <Svg
           variant="custom"
           width={3}
