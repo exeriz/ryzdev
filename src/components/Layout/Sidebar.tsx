@@ -1,6 +1,5 @@
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Buttons/Button";
-import { Badge } from "@/components/Badge";
 import { socialMedia } from "@/components/Icons";
 import { Svg } from "@/components/Optimizing/Svg";
 
@@ -16,30 +15,10 @@ export function SidebarContent() {
         <Logo className="inline-block h-8 w-auto" />
         <span>RyzDev</span>
       </Button>
-      <div className="mt-12 mb-5">
-        <Button
-          href="/changelog"
-          variant="link"
-          className="group inline-flex items-center space-x-6"
-          aria-label="Link to changelog page"
-        >
-          <Badge
-            title="View changelog"
-            variant="secondary"
-            className="px-3 py-2"
-          >
-            What's new
-          </Badge>
-          <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600 dark:text-gray-400">
-            <span>Official Release v1.4.8</span>
-            <Svg
-              variant="outline"
-              width={14}
-              height={14}
-              draw={["m8.25 4.5 7.5 7.5-7.5 7.5"]}
-              className="group-hover:translate-x-2"
-            />
-          </span>
+      <div className="relative inline-flex items-center gap-x-1 rounded-full bg-gray-50 dark:bg-blue-400/10 mt-8 mb-6 px-3 py-1 text-sm/6 font-medium text-gray-600 dark:text-blue-400 ring-1 ring-gray-500/10 hover:ring-gray-500/20 dark:ring-blue-400/30 dark:hover:ring-blue-400/40 ring-inset">
+        <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">Open Source code is only available on GitHub.</div>
+        <Button variant="default" href="https://github.com/exeriz/ryzdev" className="font-medium text-blue-500 dark:text-sky-500">
+          <span aria-hidden="true" className="absolute inset-0" /> Visit <span aria-hidden="true">&rarr;</span>
         </Button>
       </div>
       <h1 className="text-4xl/tight font-semibold text-gray-950 dark:text-gray-50">
