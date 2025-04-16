@@ -294,8 +294,7 @@ export default function Home() {
                   <>
                     <Button
                       href={project.homepage}
-                      variant="text"
-                      shadow={false}
+                      variant="link"
                       aria-label="Link to visit demo"
                       className="hover:underline"
                     >
@@ -313,8 +312,7 @@ export default function Home() {
                 )}
                 <Button
                   href={project.git}
-                  variant="text"
-                  shadow={false}
+                  variant="link"
                   aria-label="Link to visit github repository"
                   className="hover:underline"
                 >

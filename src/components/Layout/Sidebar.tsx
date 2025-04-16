@@ -8,9 +8,8 @@ export function SidebarContent() {
   return (
     <>
       <Button
-        variant="text"
-        to="/"
-        shadow={false}
+        variant="link"
+        href="/"
         aria-label="Link icon to return to the home page"
         className="text-xl gap-x-3"
       >
@@ -19,10 +18,8 @@ export function SidebarContent() {
       </Button>
       <div className="mt-12 mb-5">
         <Button
-          to="/changelog"
-          variant="text"
-          defaultStyle={false}
-          shadow={false}
+          href="/changelog"
+          variant="link"
           className="group inline-flex items-center space-x-6"
           aria-label="Link to changelog page"
         >
@@ -58,10 +55,9 @@ export function SidebarContent() {
       </p>
       <div className="mt-8 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 lg:justify-start">
         <Button
-          variant="text"
-          to="/introduction"
+          variant="link"
+          href="/introduction"
           className="text-[13px]/6 font-medium"
-          shadow={false}
         >
           <Svg
             width={16}
@@ -71,9 +67,8 @@ export function SidebarContent() {
           Introcuce
         </Button>
         <Button
-          variant="text"
+          variant="link"
           href="https://github.com/ryzmdn"
-          shadow={false}
           className="text-[13px]/6 font-medium"
         >
           <Svg
@@ -84,9 +79,8 @@ export function SidebarContent() {
           GitHub
         </Button>
         <Button
-          variant="text"
+          variant="link"
           href="https://www.linkedin.com/in/ryzmdn"
-          shadow={false}
           className="text-[13px]/6 font-medium"
         >
           <Svg
@@ -109,9 +103,7 @@ export function SidebarFooter() {
         <div className="inline-flex items-center gap-x-3">
           {socialMedia.map((item) => (
             <Button
-              variant="text"
-              defaultStyle={false}
-              shadow={false}
+              variant="link"
               key={item.name}
               href={item.url}
               aria-label={`${item.name} icon link to view my account`}

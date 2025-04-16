@@ -11,7 +11,6 @@ export function ThemeButton() {
       variant="secondary"
       onClick={toggleTheme}
       rounded={true}
-      defaultStyle={false}
       aria-label={`Change website theme to ${darkMode ? "Light" : "Dark"} mode`}
       className="size-8"
     >
