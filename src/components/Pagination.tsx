@@ -35,14 +35,14 @@ export function Pagination({
       <div className="grid grid-cols-2 w-full">
         <div className="flex justify-start">
           {currentPage > 1 && (
-            <Button onClick={handlePreviousPage} variant="secondary" aria-label={`Button to page ${currentPage - 1}`}>
+            <Button onClick={handlePreviousPage} variant="ghost" aria-label={`Button to page ${currentPage - 1}`} className="px-2.5 py-1">
               <span aria-hidden="true">&larr;</span> Previous
             </Button>
           )}
         </div>
         <div className="flex justify-end">
           {currentPage < totalPages && (
-            <Button onClick={handleNextPage} variant="secondary" aria-label={`Button to page ${currentPage + 1}`}>
+            <Button onClick={handleNextPage} variant="ghost" aria-label={`Button to page ${currentPage + 1}`} className="px-2.5 py-1">
               Next <span aria-hidden="true">&rarr;</span>
             </Button>
           )}
