@@ -10,7 +10,7 @@ export function Layout({ children }: Readonly<{ children: ReactNode }>) {
       <Sidebar />
       <div className="relative flex-auto">
         <Point />
-        <div className="py-20 sm:py-32">{children}</div>
+        <div className="py-20 sm:py-24">{children}</div>
       </div>
     </>
   );
