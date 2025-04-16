@@ -23,7 +23,7 @@ export function SidebarContent() {
       </div>
       <h1 className="text-4xl/tight font-semibold text-gray-950 dark:text-gray-50">
         RyzDev – Find My{" "}
-        <span className="text-blue-600 dark:text-blue-400">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">
           Creativity Trail
         </span>
       </h1>
