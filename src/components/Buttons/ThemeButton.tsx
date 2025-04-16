@@ -8,7 +8,7 @@ export function ThemeButton() {
 
   return (
     <Button
-      variant="secondary"
+      variant="outline"
       onClick={toggleTheme}
       rounded={true}
       aria-label={`Change website theme to ${darkMode ? "Light" : "Dark"} mode`}

@@ -8,7 +8,7 @@ const variantStyles = {
   secondary:
     "bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 shadow-xs disabled:text-gray-400 disabled:bg-gray-200",
   outline:
-    "bg-gray-50 text-gray-800 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 shadow-xs disabled:text-gray-400 disabled:bg-gray-200 disabled:ring-gray-200",
+    "bg-gray-50 hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-gray-300 dark:ring-gray-700 ring-inset shadow-xs disabled:text-gray-400 disabled:bg-gray-200 disabled:ring-gray-200",
   ghost:
     "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-800 dark:text-gray-200 disabled:text-gray-400 disabled:hover:bg-transparent",
   link: "text-gray-800 dark:text-gray-200 hover:underline disabled:hover:no-underline disabled:text-gray-400",
