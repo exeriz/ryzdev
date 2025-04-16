@@ -35,7 +35,7 @@ export function Button({
   className,
   ...props
 }: Readonly<ButtonProps>) {
-  const radius = rounded ? "rounded-full" : "rounded-sm";
+  const radius = rounded ? "rounded-full" : "rounded-md";
 
   const baseClassName = clss(
     "inline-flex justify-center items-center gap-x-2 font-medium cursor-pointer disabled:cursor-not-allowed",
