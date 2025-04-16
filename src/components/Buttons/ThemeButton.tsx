@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/components/Buttons/Button";
 import { Svg } from "@/components/Optimizing/Svg";
 import { useTheme } from "@/context/ThemeProvider";
 

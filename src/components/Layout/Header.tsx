@@ -1,5 +1,5 @@
 import { useLocation } from "react-router";
-import { ThemeButton } from "@/components/Button/ThemeButton";
+import { ThemeButton } from "@/components/Buttons/ThemeButton";
 import { Svg } from "@/components/Optimizing/Svg";
 import { useFilterContext } from "@/context/FilterContent";
 

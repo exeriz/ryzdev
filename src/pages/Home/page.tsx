@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, SectionHeader } from "@/components/Layout/Container";
 import { Pagination } from "@/components/Pagination";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/components/Buttons/Button";
 import { Badge } from "@/components/Badge";
 import { Svg } from "@/components/Optimizing/Svg";
 import { Project } from "@/assets/types/project";

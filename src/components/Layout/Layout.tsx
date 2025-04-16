@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { Point } from "@/components/Point";
 import { Header } from "@/components/Layout/Header";
-import { ScrollButton } from "@/components/Button/ScrollButton";
+import { ScrollButton } from "@/components/Buttons/ScrollButton";
 
 export function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return (

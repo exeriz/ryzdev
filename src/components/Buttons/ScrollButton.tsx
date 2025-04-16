@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/components/Buttons/Button";
 import { Svg } from "@/components/Optimizing/Svg";
 
 export function ScrollButton() {

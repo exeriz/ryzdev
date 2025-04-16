@@ -1,5 +1,5 @@
 import { PaginationInterface } from "@/assets/types/pagination";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/components/Buttons/Button";
 
 export function Pagination({
   currentPage,

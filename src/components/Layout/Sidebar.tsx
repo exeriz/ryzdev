@@ -1,5 +1,5 @@
 import { Logo } from "@/components/Logo";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/components/Buttons/Button";
 import { Badge } from "@/components/Badge";
 import { socialMedia } from "@/components/Icons";
 import { Svg } from "@/components/Optimizing/Svg";
