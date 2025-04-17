@@ -72,10 +72,11 @@ export function SidebarContent() {
         <Logo className="inline-block h-8 w-auto" />
         <span>RyzDev</span>
       </Button>
-      <div className="relative flex items-center gap-x-1 mt-8 mb-6 w-max bg-blue-600/10 dark:bg-blue-500/10 px-3 py-1 text-sm/6 font-medium text-blue-600 dark:text-blue-400 ring-1 ring-blue-600/10 hover:ring-blue-600/20 dark:ring-blue-500/20 dark:hover:ring-blue-500/30 ring-inset rounded-full">
+      <div className="relative flex items-center gap-x-2 mt-8 mb-6 w-max bg-blue-600/10 dark:bg-blue-500/10 px-3 py-1 text-sm/6 font-medium text-blue-600 dark:text-blue-400 ring-1 ring-blue-600/10 hover:ring-blue-600/20 dark:ring-blue-500/20 dark:hover:ring-blue-500/30 ring-inset rounded-full">
         <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">Open Source code is only available on GitHub.</div>
         <Button variant="default" href="https://github.com/exeriz/ryzdev" className="font-medium text-blue-500 dark:text-sky-500">
-          <span aria-hidden="true" className="absolute inset-0" /> Visit <span aria-hidden="true">&rarr;</span>
+          <span aria-hidden="true" className="absolute inset-0" />
+          <Svg variant="outline" width={12} height={12} draw={["M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"]} />
         </Button>
       </div>
       <h1 className="text-4xl/tight font-semibold text-gray-950 dark:text-gray-50">
