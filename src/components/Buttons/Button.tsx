@@ -4,9 +4,9 @@ import { clss } from "@/utils/clss";
 
 const variantStyles = {
   primary:
-    "bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-gray-200 shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:text-gray-100 disabled:bg-gray-300 dark:disabled:text-gray-700 dark:disabled:bg-gray-800",
+    "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-gray-200 shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 disabled:text-gray-100 disabled:bg-gray-300 dark:disabled:text-gray-700 dark:disabled:bg-gray-800",
   secondary:
-    "bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 shadow-xs disabled:text-gray-400 disabled:bg-gray-200",
+    "bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900 shadow-xs disabled:text-gray-400 disabled:bg-gray-200",
   outline:
     "bg-gray-50 hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-gray-300 dark:ring-gray-700 ring-inset shadow-xs disabled:text-gray-400 disabled:bg-gray-200 disabled:ring-gray-200",
   ghost:
