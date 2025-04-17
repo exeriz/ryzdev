@@ -23,19 +23,19 @@ function Container({
 
 function SectionHeader({ date }: Readonly<{ date: string }>) {
   return (
-    <header aria-label="Section header" className="relative mb-10 xl:mb-0">
-      <div className="pointer-events-none absolute left-[max(-0.5rem,calc(50%-18.625rem))] top-0 z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] xl:h-8">
+    <header aria-label="Section header" className="relative mb-8 lg:mb-6">
+      <div className="pointer-events-none absolute left-[max(-0.5rem,calc(50%-18.625rem))] top-0 z-50 flex h-6 items-center justify-end gap-x-2 lg:left-0 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem]">
         <Time
           date={date}
-          className="hidden pointer-events-auto text-xs text-gray-500 xl:block"
+          className="hidden pointer-events-auto text-xs/6 text-gray-500 xl:block"
         />
-        <div className="h-[0.0625rem] w-3.5 bg-gray-500 lg:-mr-3.5 xl:mr-0" />
+        <div className="h-[0.0625rem] w-3.5 bg-gray-500 lg:-mr-3.5" />
       </div>
       <Container>
-        <div className="flex flex-col">
+        <div className="flex">
           <Time
             date={date}
-            className="text-xs text-gray-500 xl:hidden"
+            className="text-sm/6 text-gray-500"
           />
         </div>
       </Container>
