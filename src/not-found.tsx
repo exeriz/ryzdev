@@ -12,7 +12,7 @@ export default function ErrorPage() {
           Sorry, we couldn’t find the page you’re looking for.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Button to="/">
+          <Button href="/" className="px-3 py-1.5">
             Go back home
           </Button>
         </div>
