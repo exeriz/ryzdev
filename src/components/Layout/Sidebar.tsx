@@ -72,7 +72,7 @@ export function SidebarContent() {
         <Logo className="inline-block h-8 w-auto" />
         <span>RyzDev</span>
       </Button>
-      <div className="relative flex items-center gap-x-1 mt-8 mb-6 bg-blue-600/10 dark:bg-blue-500/10 px-3 py-1 text-sm/6 font-medium text-blue-600 dark:text-blue-400 ring-1 ring-blue-600/10 hover:ring-blue-600/20 dark:ring-blue-500/20 dark:hover:ring-blue-500/30 ring-inset rounded-full">
+      <div className="relative flex items-center gap-x-1 mt-8 mb-6 w-max bg-blue-600/10 dark:bg-blue-500/10 px-3 py-1 text-sm/6 font-medium text-blue-600 dark:text-blue-400 ring-1 ring-blue-600/10 hover:ring-blue-600/20 dark:ring-blue-500/20 dark:hover:ring-blue-500/30 ring-inset rounded-full">
         <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">Open Source code is only available on GitHub.</div>
         <Button variant="default" href="https://github.com/exeriz/ryzdev" className="font-medium text-blue-500 dark:text-sky-500">
           <span aria-hidden="true" className="absolute inset-0" /> Visit <span aria-hidden="true">&rarr;</span>
