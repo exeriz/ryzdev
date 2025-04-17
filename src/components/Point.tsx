@@ -8,7 +8,7 @@ export function Point() {
     <div className="pointer-events-none absolute inset-0 z-50 overflow-hidden lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-visible">
       <Svg
         variant="custom"
-        className="absolute left-[max(0px,calc(50%-18.6rem))] top-0 h-full w-1.5 lg:left-full lg:ml-1 xl:left-auto xl:right-1 xl:ml-0"
+        className="absolute left-[max(0px,calc(50%-18.6rem))] top-0 h-full w-1.5 lg:left-full lg:ml-1"
         aria-hidden="true"
       >
         <defs>
