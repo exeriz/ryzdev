@@ -123,6 +123,7 @@ export function SidebarFooter() {
               key={item.name}
               href={item.url}
               aria-label={`${item.name} icon link to view my account`}
+              className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               <Svg width={18} height={18} draw={[item.icon]} current />
             </Button>
