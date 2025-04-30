@@ -1,7 +1,12 @@
 import { Container } from "@/components/Layout/Container";
 import { Image } from "@/components/Optimizing/Image";
 
-const stack = [
+interface Stack {
+  name: string;
+  logo: string;
+}
+
+const stack: Stack[] = [
   {
     name: "HTML",
     logo: "https://www.svgrepo.com/show/452228/html-5.svg",
