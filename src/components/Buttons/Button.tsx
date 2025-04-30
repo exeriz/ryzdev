@@ -38,7 +38,7 @@ export function Button({
   const radius = rounded ? "rounded-full" : "rounded-md";
 
   const baseClassName = clss(
-    "inline-flex justify-center items-center gap-x-2 font-medium cursor-pointer disabled:cursor-not-allowed",
+    "inline-flex justify-center items-center gap-x-2 text-sm/6 font-medium cursor-pointer disabled:cursor-not-allowed",
     variantStyles[variant],
     variant === "link" || variant === "default" ? "" : radius,
     current ? "text-current" : "",
