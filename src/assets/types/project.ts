@@ -1,3 +1,13 @@
+export type FeatureItem = {
+  version: string;
+  list: string[];
+};
+
+export type Contributors = {
+  image: string;
+  url: string;
+}
+
 export interface Project {
   id: number;
   name: string;
@@ -10,15 +20,9 @@ export interface Project {
   };
   category: string;
   tags: string[];
-  features: Array<{
-    version: string;
-    list: string[];
-  }> | null;
+  features: FeatureItem[] | null;
   homepage: string | null;
   git: string;
   license: string | null;
-  contributors: {
-    image: string;
-    url: string;
-  }[] | null;
+  contributors: Contributors[] | null;
 }
