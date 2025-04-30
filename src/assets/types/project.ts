@@ -10,12 +10,10 @@ export interface Project {
   };
   category: string;
   tags: string[];
-  features: [
-    {
-      version: string;
-      list: string[];
-    }
-  ] | null;
+  features: Array<{
+    version: string;
+    list: string[];
+  }> | null;
   homepage: string | null;
   git: string;
   license: string | null;
