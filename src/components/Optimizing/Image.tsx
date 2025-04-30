@@ -13,6 +13,7 @@ interface ImageProps {
   priority?: boolean;
   quality?: number;
   text?: TextImageProps;
+  className?: string;
 }
 
 export function Image({
@@ -24,6 +25,7 @@ export function Image({
   priority = false,
   quality = 75,
   text,
+  className
 }: Readonly<ImageProps>) {
   const [hasError, setHasError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -68,6 +70,7 @@ export function Image({
         onLoad={handleLoad}
         className={clss(
           isLoading ? "hidden" : "block",
+          className,
           "object-cover will-change-transform"
         )}
       />
@@ -97,6 +100,7 @@ export function Image({
         onLoad={handleLoad}
         className={clss(
           isLoading ? "hidden" : "block",
+          className,
           "absolute inset-0 size-full object-cover will-change-transform"
         )}
       />
