@@ -94,7 +94,7 @@ function ProjectItem({
         <ProjectDetails details={description.detail} />
 
         <ProjectFeatures
-          features={features}
+          features={features ?? undefined}
           selectedVersion={selectedVersion}
           onVersionChange={(e) => onVersionChange(id, e.target.value)}
           selectedFeature={selectedFeature}
@@ -104,7 +104,7 @@ function ProjectItem({
 
         <ProjectContributors contributors={contributors} />
 
-        <ProjectLinks homepage={homepage} git={git} />
+        <ProjectLinks homepage={homepage ?? undefined} git={git} />
 
         {isLastItem && showPagination && (
           <Pagination
@@ -174,7 +174,7 @@ export default function Home() {
   return (
     <div className="w-full space-y-10 sm:space-y-16">
       {currentProjects.length > 0 ? (
-        currentProjects.map((project, index) => (
+        currentProjects.map((project: Project, index: number) => (
           <ProjectItem
             key={project.id}
             project={project}
