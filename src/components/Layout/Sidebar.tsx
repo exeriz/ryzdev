@@ -64,7 +64,7 @@ export function SidebarContent() {
   return (
     <>
       <Button
-        variant="link"
+        variant="default"
         href="/"
         aria-label="Link icon to return to the home page"
         className="text-xl gap-x-3"
