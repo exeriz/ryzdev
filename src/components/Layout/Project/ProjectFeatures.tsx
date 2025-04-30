@@ -1,8 +1,8 @@
-import { Project } from "@/assets/types/project";
+import { FeatureItem } from "@/assets/types/project";
 import { Svg } from "@/components/Optimizing/Svg";
 import { SectionTitle } from "@/components/SectionTitle";
 
-function FeatureList({ feature }: Readonly<{ feature: Project["features"][number] }>) {
+function FeatureList({ feature }: Readonly<{ feature: FeatureItem }>) {
   if (!feature.list?.length) {
     return <p className="text-sm/6 mt-2">No features listed for this version.</p>;
   }
@@ -23,7 +23,7 @@ function VersionSelector({
   selectedVersion,
   onChange,
 }: Readonly<{
-  features: Project["features"];
+  features: FeatureItem[];
   selectedVersion: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }>) {
@@ -58,10 +58,10 @@ export function ProjectFeatures({
   onVersionChange,
   selectedFeature,
 }: Readonly<{
-  features?: Project["features"];
+  features?: FeatureItem[];
   selectedVersion: string;
   onVersionChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  selectedFeature?: Project["features"][number];
+  selectedFeature?: FeatureItem;
 }>) {
   if (!features?.length) {
     return <p className="text-sm/6 mt-2">No feature versions available.</p>;
