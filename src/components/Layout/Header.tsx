@@ -18,7 +18,7 @@ export function Header() {
   ].filter(Boolean);
 
   return (
-    <header className="absolute right-4 top-4 z-50 -m-2.5 p-2.5">
+    <header className="absolute right-4 top-4 z-50 -m-2.5 p-2.5 xl:right-1/5 xl:-translate-x-1/2">
       <div className="flex items-center gap-x-5">
         {location.pathname === "/" && (
           <>
@@ -44,7 +44,7 @@ export function Header() {
                 width={14}
                 height={14}
                 draw={["m19.5 8.25-7.5 7.5-7.5-7.5"]}
-                className="pointer-events-none col-start-1 row-start-1 mr-2 self-center justify-self-end"
+                className="pointer-events-none text-gray-600 dark:text-gray-400 col-start-1 row-start-1 mr-2 self-center justify-self-end"
               />
             </div>
           </>
