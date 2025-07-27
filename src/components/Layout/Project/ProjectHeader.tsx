@@ -5,7 +5,6 @@ import { dateFormatter } from "@/utils/dateFormatter";
 
 export function ProjectHeader({
   name,
-  category,
   summary,
   id,
   created_at,
@@ -13,7 +12,6 @@ export function ProjectHeader({
   features,
 }: Readonly<{
   name: string;
-  category: string;
   summary: string;
   id: number;
   created_at: string;
@@ -23,12 +21,9 @@ export function ProjectHeader({
   return (
     <section className="border-b border-gray-950/10 dark:border-gray-50/10 space-y-2.5 pb-5">
       <div className="flex flex-wrap-reverse sm:items-center gap-x-5 gap-y-2.5">
-        <h2 className="text-xl truncate font-semibold text-gray-950 dark:text-gray-50">
+        <h2 className="text-xl truncate font-semibold text-gray-950 dark:text-gray-50 sm:text-2xl">
           {name}
         </h2>
-        <Badge title="Project category" variant="secondary">
-          {category}
-        </Badge>
       </div>
 
       <p className="text-base/7 text-gray-800 dark:text-gray-200">{summary}</p>
