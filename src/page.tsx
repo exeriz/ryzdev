@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import Home from "@/pages/Home/page";
+import Home from "@/pages/home/page";
 import About from "@/pages/introduction/page";
 import NotFound from "@/not-found";
 
