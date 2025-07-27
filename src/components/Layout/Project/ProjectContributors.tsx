@@ -14,7 +14,7 @@ export function ProjectContributors({
   const showSeeAll = (contributors?.length || 0) > maxVisible;
 
   return (
-    <div className="w-full space-y-4 mt-6">
+    <div className="w-full space-y-4 my-5 py-5">
       <div className="flex justify-between items-center w-full">
         <SectionTitle icon="contributors">Contributors</SectionTitle>
 

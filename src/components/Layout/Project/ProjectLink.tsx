@@ -11,7 +11,7 @@ export function ProjectLinks({
   if (!homepage && !git) return null;
 
   return (
-    <div className="flex items-center gap-x-4 mt-8">
+    <div className="flex items-center gap-x-7 mt-8">
       {homepage && (
         <>
           <Button

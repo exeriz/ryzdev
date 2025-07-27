@@ -8,10 +8,10 @@ import { ProjectFeatures } from "@/components/Layout/Project/ProjectFeatures";
 import { ProjectTags } from "@/components/Layout/Project/ProjectTags";
 import { ProjectContributors } from "@/components/Layout/Project/ProjectContributors";
 import { ProjectLinks } from "@/components/Layout/Project/ProjectLink";
+import { EmptyState, ErrorState, LoadingState, NoProjectsFound } from "@/components/State";
 import { Project } from "@/assets/types/project";
 import { useFetch } from "@/hooks/useFetch";
 import { useFilterContext } from "@/context/FilterContent";
-import { EmptyState, ErrorState, LoadingState, NoProjectsFound } from "@/components/State";
 
 const PROJECTS_PER_PAGE: number = 5;
 
@@ -59,7 +59,7 @@ function ProjectItem({
   return (
     <article id={name.replace(/ /g, "-").toLowerCase()}>
       <SectionHeader date={created_at} />
-      <Container className="text-gray-600 dark:text-gray-400">
+      <Container className="bg-transparent pb-8">
         <ProjectThumbnail project={project} />
 
         <ProjectHeader
@@ -153,7 +153,7 @@ export default function Home() {
   if (!projects?.length) return <EmptyState />;
 
   return (
-    <div className="w-full space-y-10 sm:space-y-16">
+    <div className="flex flex-col gap-y-8 w-full divide-y divide-gray-100 dark:divide-gray-900 sm:gap-y-12">
       {currentProjects.length > 0 ? (
         currentProjects.map((project: Project, index: number) => (
           <ProjectItem
