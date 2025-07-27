@@ -7,16 +7,7 @@
 }
 
 @layer utilities {
-  html, body, div, span, iframe, h1, h2, h3, 
-  h4, h5, h6, p, blockquote, pre, a, abbr, 
-  address, cite, code, del, dfn, em, img, ins, 
-  kbd, button, small, strong, sub, sup, tt, var, 
-  b, u, i, center, dl, dt, dd, ol, ul, li, 
-  fieldset, form, label, legend, table, caption, 
-  tbody, tfoot, thead, tr, th, td, article, aside, 
-  canvas, details, figure, figcaption, footer, 
-  header, hgroup, menu, nav, section, summary,
-  time, mark, audio, video {
+  * {
     @apply transition-all duration-200 ease-linear;
   }
 
