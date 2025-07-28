@@ -16,21 +16,21 @@ export function ProjectThumbnail({ project }: Readonly<{ project: Project }>) {
           </p>
         </div>
 
-        <div className="absolute top-0 left-0 flex justify-between items-center text-[0.5rem] w-full h-max p-4 bg-transparent sm:text-xs sm:p-5">
+        <div className="absolute top-0 left-0 flex justify-between items-center w-full h-max p-4 bg-transparent sm:p-5">
           <div className="flex items-center gap-x-2 sm:gap-x-3">
-            <Badge title="Project Category" variant="secondary">
+            <Badge title="Project Category" variant="secondary" className="text-[0.375rem] sm:text-xs">
               {project.category}
             </Badge>
-            <Badge title="Project Version">
+            <Badge title="Project Version" className="text-[0.375rem] sm:text-xs">
               Version {project.features?.[0]?.version ?? "1.0.0"}
             </Badge>
           </div>
 
-          <Badge title="Project Index">#{project.id}</Badge>
+          <Badge title="Project Index" className="text-[0.375rem] sm:text-xs">#{project.id}</Badge>
         </div>
 
         <div className="absolute left-0 bottom-0 flex justify-between items-center gap-x-2 w-full p-4 text-[0.5rem] sm:gap-x-3 sm:text-xs sm:p-5">
-          <Badge title="Project License">
+          <Badge title="Project License" className="text-[0.375rem] sm:text-xs">
             {project.license ?? "No"} License
           </Badge>
 
@@ -49,7 +49,7 @@ export function ProjectThumbnail({ project }: Readonly<{ project: Project }>) {
         <Svg
           variant="custom"
           viewBox="0 0 1024 1024"
-          className="absolute top-1/2 left-1/2 -z-10 size-256 opacity-50 -translate-y-1/2 mask-[radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+          className="absolute top-1/2 left-1/2 -z-10 size-256 opacity-50 -translate-x-1/2 translate-y-0 mask-[radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0"
         >
           <circle
             r={512}
