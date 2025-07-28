@@ -42,7 +42,6 @@ function ProjectItem({
     id,
     name,
     created_at,
-    category,
     description,
     features,
     tags,
@@ -64,7 +63,6 @@ function ProjectItem({
 
         <ProjectHeader
           name={name}
-          category={category}
           summary={description.summary}
           id={id}
           created_at={created_at}
