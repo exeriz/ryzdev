@@ -43,8 +43,8 @@ const getRandomStartPoint = () => {
 export function ShootingStars({
   minSpeed = 10,
   maxSpeed = 30,
-  minDelay = 1200,
-  maxDelay = 4200,
+  minDelay = 1000,
+  maxDelay = 4000,
   starColor = "#9E00FF",
   trailColor = "#2EB9DF",
   starWidth = 10,
@@ -116,7 +116,7 @@ export function ShootingStars({
   return (
     <svg
       ref={svgRef}
-      className={clss("size-full absolute inset-0", className)}
+      className={clss("size-full absolute inset-0 -z-1", className)}
     >
       {star && (
         <rect

@@ -158,7 +158,7 @@ export function Sidebar() {
     >
       <div className="absolute inset-0 -z-10 overflow-hidden bg-gray-50 dark:bg-gray-950 border-b border-blue-900/10 dark:border-gray-50/10 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:border-r" />
       <div className="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(50%-38rem))]">
-        <div className="absolute size-full -z-1">
+        <div className="absolute inset-0 size-full -z-1">
           <StarsBackground />
           <ShootingStars />
         </div>
