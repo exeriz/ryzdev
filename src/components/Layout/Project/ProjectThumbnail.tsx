@@ -1,45 +1,50 @@
 import { Project } from "@/assets/types/project";
 import { Svg } from "@/components/Optimizing/Svg";
 import { Badge } from "@/components/Badge";
+import { Button } from "@/components/Buttons/Button";
 
 export function ProjectThumbnail({ project }: Readonly<{ project: Project }>) {
   return (
     <section className="w-full pt-8 pb-6">
       <div className="relative isolate overflow-hidden aspect-video rounded-xl bg-gray-100 dark:bg-gray-900 ring-1 ring-inset ring-gray-100 dark:ring-gray-900">
         <div className="flex flex-col justify-center items-center size-full">
-          <h3 className="text-3xl font-semibold text-gray-800 dark:text-gray-200">
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 sm:text-3xl">
             {project.name}
           </h3>
-          <p className="text-sm mt-2 text-gray-600 dark:text-gray-300">
+          <p className="text-xs mt-2 text-gray-600 dark:text-gray-300 sm:text-sm">
             Project Development
           </p>
         </div>
 
-        <Badge
-          title="Project Category"
-          variant="secondary"
-          className="absolute top-5 left-5 text-[0.5rem] sm:text-xs"
-        >
-          {project.category}
-        </Badge>
-        <Badge
-          title="Project Version"
-          className="absolute top-5 left-28 text-[0.5rem] sm:text-xs"
-        >
-          Version {project.features?.[0]?.version}
-        </Badge>
-        <Badge
-          title="Project License"
-          className="absolute bottom-5 left-5 text-[0.5rem] sm:text-xs"
-        >
-          {project.license ?? "No"} License
-        </Badge>
-        <Badge
-          title="Project Index"
-          className="absolute top-5 right-5 text-[0.5rem] sm:text-xs"
-        >
-          #{project.id}
-        </Badge>
+        <div className="absolute top-0 left-0 flex justify-between items-center text-[0.5rem] w-full h-max p-4 bg-transparent sm:text-xs sm:p-5">
+          <div className="flex items-center gap-x-2 sm:gap-x-3">
+            <Badge title="Project Category" variant="secondary">
+              {project.category}
+            </Badge>
+            <Badge title="Project Version">
+              Version {project.features?.[0]?.version ?? "1.0.0"}
+            </Badge>
+          </div>
+
+          <Badge title="Project Index">#{project.id}</Badge>
+        </div>
+
+        <div className="absolute left-0 bottom-0 flex justify-between items-center gap-x-2 w-full p-4 text-[0.5rem] sm:gap-x-3 sm:text-xs sm:p-5">
+          <Badge title="Project License">
+            {project.license ?? "No"} License
+          </Badge>
+
+          <p className="text-gray-500">
+            Created by{" "}
+            <Button
+              variant="link"
+              href="https://github.com/ryzmdn"
+              className="font-normal text-[0.5rem] sm:text-xs"
+            >
+              @ryzmdn
+            </Button>
+          </p>
+        </div>
 
         <Svg
           variant="custom"
