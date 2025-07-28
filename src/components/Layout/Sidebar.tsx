@@ -74,6 +74,7 @@ export function SidebarContent() {
         <Logo className="inline-block h-8 w-auto" />
         <span>RyzDev</span>
       </Button>
+
       <div className="relative flex items-center gap-x-2 backdrop-blur-sm mt-8 mb-6 w-max bg-blue-600/10 dark:bg-blue-500/10 px-3 py-1 text-sm/6 font-medium text-blue-600 dark:text-blue-400 ring-1 ring-blue-600/10 hover:ring-blue-600/20 dark:ring-blue-500/20 dark:hover:ring-blue-500/30 ring-inset rounded-full">
         <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">
           Open Source code is only available on GitHub.
@@ -94,6 +95,7 @@ export function SidebarContent() {
           />
         </Button>
       </div>
+      
       <h1 className="text-4xl/tight font-semibold text-gray-950 dark:text-gray-50">
         RyzDev – Find My{" "}
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-500">
@@ -105,7 +107,7 @@ export function SidebarContent() {
         inspiration. From simple to complex works, everything is here to see and
         appreciate.
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-3.5 mt-8 sm:gap-x-4 lg:justify-start">
+      <div className="flex flex-wrap items-center gap-3.5 mt-8 sm:gap-x-4">
         {sidebarButtons.map((button) => (
           <Button
             key={button.name}
@@ -130,7 +132,7 @@ export function SidebarContent() {
 export function SidebarFooter() {
   return (
     <footer aria-label="Sidebar footer" className="w-full">
-      <div className="flex justify-center items-center gap-x-5 text-sm/6 text-gray-600 dark:text-gray-400 lg:justify-start">
+      <div className="flex items-center gap-x-5 text-sm/6 text-gray-600 dark:text-gray-400">
         <p>Follow me on:</p>
         <div className="inline-flex items-center gap-x-3">
           {socialMedia.map((item) => (
