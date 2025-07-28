@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, SectionHeader } from "@/components/Layout/Container";
 import { Pagination } from "@/components/Pagination";
-import { Project } from "@/assets/types/project";
-import { useFetch } from "@/hooks/useFetch";
-import { useFilterContext } from "@/context/FilterContent";
 import { ProjectThumbnail } from "@/components/Layout/Project/ProjectThumbnail";
 import { ProjectHeader } from "@/components/Layout/Project/ProjectHeader";
 import { ProjectDetails } from "@/components/Layout/Project/ProjectDetails";
@@ -11,30 +8,14 @@ import { ProjectFeatures } from "@/components/Layout/Project/ProjectFeatures";
 import { ProjectTags } from "@/components/Layout/Project/ProjectTags";
 import { ProjectContributors } from "@/components/Layout/Project/ProjectContributors";
 import { ProjectLinks } from "@/components/Layout/Project/ProjectLink";
+import { EmptyState, ErrorState, LoadingState, NoProjectsFound } from "@/components/State";
+import { Project } from "@/assets/types/project";
+import { useFetch } from "@/hooks/useFetch";
+import { useFilterContext } from "@/context/FilterContent";
 
-const PROJECTS_PER_PAGE = 5;
+const PROJECTS_PER_PAGE: number = 5;
 
 type SelectedVersions = Record<number, string>;
-
-function LoadingState() {
-  return <div className="text-center py-10">Loading projects...</div>;
-}
-
-function ErrorState({ error }: Readonly<{ error: string }>) {
-  return <div className="text-center py-10 text-red-500">Error: {error}</div>;
-}
-
-function EmptyState() {
-  return <div className="text-center py-10">No projects found</div>;
-}
-
-function NoProjectsFound() {
-  return (
-    <div className="text-center py-10">
-      No projects found for the selected category.
-    </div>
-  );
-}
 
 interface ProjectItemProps {
   project: Project;
@@ -61,7 +42,6 @@ function ProjectItem({
     id,
     name,
     created_at,
-    category,
     description,
     features,
     tags,
@@ -78,12 +58,11 @@ function ProjectItem({
   return (
     <article id={name.replace(/ /g, "-").toLowerCase()}>
       <SectionHeader date={created_at} />
-      <Container className="text-gray-600 dark:text-gray-400">
+      <Container className="bg-transparent pb-8">
         <ProjectThumbnail project={project} />
 
         <ProjectHeader
           name={name}
-          category={category}
           summary={description.summary}
           id={id}
           created_at={created_at}
@@ -172,7 +151,7 @@ export default function Home() {
   if (!projects?.length) return <EmptyState />;
 
   return (
-    <div className="w-full space-y-10 sm:space-y-16">
+    <div className="flex flex-col gap-y-8 w-full divide-y divide-gray-100 dark:divide-gray-900 sm:gap-y-12">
       {currentProjects.length > 0 ? (
         currentProjects.map((project: Project, index: number) => (
           <ProjectItem

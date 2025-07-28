@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from "react";
 import { Time } from "@/components/Optimizing/Time";
+import { Badge } from "@/components/Badge";
 import { clss } from "@/utils/clss";
 
 function Container({
@@ -32,12 +33,12 @@ function SectionHeader({ date }: Readonly<{ date: string }>) {
         <div className="h-[0.0625rem] w-3.5 bg-gray-500 lg:-mr-3.5" />
       </div>
       <Container>
-        <div className="flex">
+        <Badge title={date}>
           <Time
             date={date}
-            className="text-sm/6 text-gray-500"
+            className="text-xs font-normal text-gray-600 dark:text-gray-400"
           />
-        </div>
+        </Badge>
       </Container>
     </header>
   );

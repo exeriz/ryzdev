@@ -68,7 +68,7 @@ export function ProjectFeatures({
   }
 
   return (
-    <div className="w-full mt-6">
+    <div className="w-full my-5 py-5">
       <SectionTitle icon="features">Features</SectionTitle>
 
       <div className="rounded-md bg-gray-50 dark:bg-gray-400/10 pt-1.5 px-3.5 pb-3.5 text-gray-600 dark:text-gray-400 mt-2 ring-1 ring-gray-500/10 dark:ring-gray-400/20 ring-inset">
