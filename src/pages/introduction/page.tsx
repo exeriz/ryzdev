@@ -153,11 +153,11 @@ export default function About() {
         <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
           Stats
         </h3>
-        <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <dl className="grid grid-cols-1 gap-5 mt-5 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((item) => (
             <div
               key={item.name}
-              className="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900 px-4 py-5 shadow-sm sm:p-6"
+              className="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900 w-full px-4 py-5 shadow-sm sm:p-6"
             >
               <dt className="truncate text-sm font-medium text-gray-600 dark:text-gray-400">
                 {item.name}
