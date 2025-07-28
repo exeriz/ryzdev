@@ -1,5 +1,8 @@
+import { useMemo } from "react";
 import { Container } from "@/components/Layout/Container";
-import { Image } from "@/components/Optimizing/Image";
+import { EmptyState, ErrorState, LoadingState } from "@/components/State";
+import { Project } from "@/assets/types/project";
+import { useFetch } from "@/hooks/useFetch";
 
 interface Stack {
   name: string;
@@ -30,6 +33,38 @@ const stack: Stack[] = [
 ];
 
 export default function About() {
+  const {
+    data: projects,
+    loading,
+    error,
+  } = useFetch<Project>(import.meta.env.VITE_PROJECT_URL);
+
+  const stats = useMemo(
+    () => [
+      {
+        name: "Total Projects",
+        stat: projects.length.toString(),
+      },
+      {
+        name: "Total Category",
+        stat: [...new Set(projects.map((project) => project?.category))]
+          .filter(Boolean)
+          .length.toString(),
+      },
+      {
+        name: "Technologies Used",
+        stat: [...new Set(projects.flatMap((project) => project?.tags || []))]
+          .filter(Boolean)
+          .length.toString(),
+      },
+    ],
+    [projects]
+  );
+
+  if (loading) return <LoadingState />;
+  if (error) return <ErrorState error={error} />;
+  if (!projects?.length) return <EmptyState />;
+
   return (
     <Container className="text-base/7 text-gray-600 dark:text-gray-400">
       <p className="font-semibold text-blue-600 dark:text-blue-400">
@@ -115,13 +150,36 @@ export default function About() {
         </p>
       </div>
       <div className="w-full py-10">
-        <h3 className="text-xl font-medium">Technology Used</h3>
+        <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+          Stats
+        </h3>
+        <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {stats.map((item) => (
+            <div
+              key={item.name}
+              className="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900 px-4 py-5 shadow-sm sm:p-6"
+            >
+              <dt className="truncate text-sm font-medium text-gray-600 dark:text-gray-400">
+                {item.name}
+              </dt>
+              <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200">
+                {item.stat}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div className="w-full py-10">
+        <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+          Technology Used
+        </h3>
         <div className="grid grid-cols-3 gap-8 py-8 sm:grid-cols-4">
           {stack.map((item) => (
-            <div key={item.name} className="flex flex-col items-center gap-y-4 text-sm text-center">
-              <Image
-                priority
-                variant="square"
+            <div
+              key={item.name}
+              className="flex flex-col items-center gap-y-4 text-sm text-center"
+            >
+              <img
                 src={item.logo}
                 alt={`${item.name} Logo`}
                 width={52}
